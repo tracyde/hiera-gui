@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+  <title>hieraui</title>
+  <script src='/lib/angular.min.js'></script>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+  <script src='/hieraui.js'></script>
+  <link rel='stylesheet' href='/hieraui.css'>
+</head>
+
+<body>
+<div class='container' ng-controller='NodeCtrl'>
+  <h1 class='charcoal rounded-box'>hieraui</h1>
+
+  <h2>Nodes</h2>
+
+  <ul class='grey rounded-box'>
+    <li ng-repeat='n in nodes' ng-class='{role: n.Role}'>
+      <span class='checkbox'></span>{{n.Name}}
+    </li>
+  </ul>
+
+  <form>
+    <input type='text' class='rounded-box' placeholder='add new node name here' ng-model='nodeName'>
+    <input type='text' class='rounded-box' placeholder='add new node role here' ng-model='nodeRole'>
+    <button class='grey rounded-box' ng-click='addNode()' ng-disabled='working'>New Node</button>
+  </form>
+
+  <img class='spinner' src='spinner.gif' alt='Loading' ng-class='{working: working}'/>
+</div>
+</body>
+</html>
