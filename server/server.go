@@ -13,10 +13,11 @@ package server
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/tracyde/hiera-gui/node"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
+	"github.com/tracyde/hiera-gui/node"
 )
 
 var nodes = node.NewNodeManager()
@@ -86,7 +87,10 @@ func ListNodes(w http.ResponseWriter, r *http.Request) error {
 // req: POST /node/ {"Title": "Buy bread"}
 // res: 200
 func NewNode(w http.ResponseWriter, r *http.Request) error {
-	req := struct{ Name string; Role string }{}
+	req := struct {
+		Name string
+		Role string
+	}{}
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		return badRequest{err}
 	}
