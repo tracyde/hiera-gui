@@ -20,7 +20,8 @@ import (
 	"github.com/tracyde/hiera-gui/node"
 )
 
-var nodes = node.NewNodeManager()
+var dir = "nodes"
+var nodes = node.NewNodeManager(dir)
 
 const PathPrefix = "/node/"
 

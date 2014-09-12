@@ -10,5 +10,5 @@ import (
 func main() {
 	server.RegisterHandlers()
 	http.Handle("/", http.FileServer(http.Dir("static")))
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":9080", nil)
 }
